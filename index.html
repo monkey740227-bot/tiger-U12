@@ -172,7 +172,8 @@
                         </div>
                         <button onClick={() => {
                             if (view === 'parent') {
-                                const p = prompt("教練認證碼"); if (p === "0227") setView('coach');
+                                // 更換後的密碼 1203
+                                const p = prompt("教練認證碼"); if (p === "1203") setView('coach');
                             } else setView('parent');
                         }} className="bg-slate-900 border border-yellow-500/30 px-4 py-1.5 rounded-full text-[10px] font-black uppercase text-yellow-500">
                             {view === 'parent' ? "Coach Login" : "Logout"}
@@ -245,13 +246,13 @@
                                 )}
 
                                 {activeGroup === '管理' ? (
-                                    /* 人員新增/刪除區 */
+                                    /* 人員管理區 */
                                     <div className="space-y-6">
                                         <div className="glass-card p-6 rounded-2xl">
                                             <h3 className="text-[10px] font-black text-yellow-500 uppercase mb-4 tracking-widest italic">新增成員 / Add New Member</h3>
                                             <form onSubmit={addPlayer} className="grid grid-cols-2 gap-3">
                                                 <input name="name" placeholder="球員姓名" className="col-span-2 bg-slate-950 p-3 rounded-xl text-sm border border-slate-800" required />
-                                                <input name="number" placeholder="背號 (如: 10)" className="bg-slate-950 p-3 rounded-xl text-sm border border-slate-800" />
+                                                <input name="number" placeholder="背號" className="bg-slate-950 p-3 rounded-xl text-sm border border-slate-800" />
                                                 <select name="group" className="bg-slate-950 p-3 rounded-xl text-sm border border-slate-800 text-slate-400">
                                                     <option value="U12">U12</option>
                                                     <option value="青年軍">青年軍</option>
@@ -305,6 +306,7 @@
                         )}
                     </main>
 
+                    {/* 報表導出層 */}
                     <div style={{ position: 'absolute', left: '-9999px', top: 0 }}>
                         <div ref={allReportRef} className="report-preview">
                             <div className="text-center mb-8">
